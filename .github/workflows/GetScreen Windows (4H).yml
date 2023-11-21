@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Downloading & Setting Up
         run: |
-         echo "EMAIL_SECRET=Your GetScreen Mail" > secrets.txt
+         echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/hcp3j0b5l6gflhxdlvpr2/down.bat?rlkey=71hjw1yiczvgzaxe2owoyudgf&dl=1" -OutFile "down.bat"
          cmd /c down.bat
 
