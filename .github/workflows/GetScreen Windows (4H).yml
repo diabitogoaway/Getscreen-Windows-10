@@ -11,7 +11,7 @@ jobs:
       - name: Downloading & Setting Up
         run: |
          echo "EMAIL_SECRET=Your GetScreen Mail" > secrets.txt
-         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/gh9blxbgu8pgqycxpyt04/down.bat?rlkey=zkgedcrr7hrbgvj6sdq1w7xzb&dl=0" -OutFile "down.bat"
+         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/gh9blxbgu8pgqycxpyt04/down.bat?rlkey=zkgedcrr7hrbgvj6sdq1w7xzb&dl=1" -OutFile "down.bat"
          cmd /c down.bat
 
       - name: Time Counter
