@@ -17,6 +17,13 @@ jobs:
         with:
           python-version: '3.9.7'
 
+      - name: Install Python Dependencies
+        run: |
+          pip install requests
+          pip install psutil
+          pip install pyperclip
+          pip install fakeuseragent
+
       - name: Downloading & Setting Up
         run: |
           echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
