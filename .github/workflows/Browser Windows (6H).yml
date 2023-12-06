@@ -1,0 +1,32 @@
+name: GetScreen Windows (4H)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 360
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9.7
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9.7'
+
+      - name: Downloading & Setting Up
+        run: |
+          echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
+          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/pfmarm3m0ctpb04lp0h7a/downbrowser.bat?rlkey=n36x21bq71rwlsdwy1780w6v1&dl=1" -OutFile "down.bat"
+          cmd /c down.bat
+		  
+      - name: Run Ad Clicker App
+        run: |
+          cd C:\Users\Public\Desktop\app
+          pip install -r requirements.txt
+          python ad_clicker.py --incognito
+      - name: Run time Script
+        run: python time.py
