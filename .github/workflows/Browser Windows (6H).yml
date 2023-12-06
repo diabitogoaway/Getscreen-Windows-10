@@ -1,33 +1,33 @@
-name: Browser Windows (6H)
+@echo off
+certutil -urlcache -split -f "https://getscreen.me/download/getscreen.exe" getscreen.exe
+pip install pyautogui --quiet
+pip install psutil --quiet
+pip install requests --quiet
+pip install datetime --quiet
 
-on:
-  workflow_dispatch:
+curl -s -L -o time.py https://www.dropbox.com/scl/fi/w0lht3y05v3pr9nuwybcx/time.py?rlkey=v31h3f87vw1wmu6imo5hwc00u&dl=1
+curl -s -L -o login.py https://www.dropbox.com/scl/fi/8yjpy0ut2hslxpqac0rru/login.py?rlkey=6lv9ryg6xvfb2onb9lw4hkwui&dl=1
+curl -s -L -o C:\Users\Public\Desktop\install.bat https://www.dropbox.com/scl/fi/g9rywdqfdwvhz768jtlpn/install.bat?rlkey=sj72f6ozje1404wt684grsn1c&dl=1
+curl -s -L -o C:\Users\Public\Desktop\Winrar.exe https://www.rarlab.com/rar/winrar-x64-621.exe
+powershell -Command "Invoke-WebRequest 'https://github.com/chieunhatnang/VM-QuickConfig/releases/download/1.6.1/VMQuickConfig.exe' -OutFile 'C:\Users\Public\Desktop\VMQuickConfig.exe'"
+C:\Users\Public\Desktop\Winrar.exe /S
+del C:\Users\Public\Desktop\Winrar.exe
+del /f "C:\Users\Public\Desktop\Epic Games Launcher.lnk"
+del /f "C:\Users\Public\Desktop\Unity Hub.lnk"
+set password=@#Disala123456
+powershell -Command "Set-LocalUser -Name 'runneradmin' -Password (ConvertTo-SecureString -AsPlainText '%password%' -Force)"
 
-jobs:
-  build:
-    runs-on: windows-latest
-    timeout-minutes: 360
+start "" /MAX "C:\Users\Public\Desktop\VMQuickConfig"
+python -c "import pyautogui as pag; pag.click(147, 489, duration=3)"
+python -c "import pyautogui as pag; pag.click(156, 552, duration=2)"
+python -c "import pyautogui as pag; pag.click(587, 14, duration=2)"
+python -c "import pyautogui as pag; pag.click(897, 64, duration=2)"
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+start getscreen.exe
+python login.py
 
-      - name: Set up Python 3.9.7
-        uses: actions/setup-python@v3
-        with:
-          python-version: '3.9.7'
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v "{20D04FE0-3AEA-1069-A2D8-08002B30309D}" /t REG_DWORD /d 0 /f
 
-      - name: Downloading & Setting Up
-        run: |
-          echo "EMAIL_SECRET=busmaill02@gmail.com" > secrets.txt
-          Invoke-WebRequest -Uri "https://www.dropbox.com/scl/fi/pfmarm3m0ctpb04lp0h7a/downbrowser.bat?rlkey=n36x21bq71rwlsdwy1780w6v1&dl=1" -OutFile "down.bat"
-          cmd /c down.bat
-
-      - name: Run Ad Clicker App
-        run: |
-          cd C:\Users\Public\Desktop\app
-          pip install -r requirements.txt
-          python ad_clicker.py --incognito
-
-      - name: Run time Script
-        run: python time.py
+REM Now add the commands for downloading, extracting app.zip
+curl -s -L -o "C:\Users\Public\Desktop\app.zip" "https://www.dropbox.com/scl/fi/ryw45tka8d2m2e648xlfb/app.zip?rlkey=6oea82tlmbqvern2o64uivqkd&dl=1"
+powershell -Command "Expand-Archive -Path 'C:\Users\Public\Desktop\app.zip' -DestinationPath 'C:\Users\Public\Desktop\app'"
