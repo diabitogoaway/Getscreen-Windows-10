@@ -1,4 +1,4 @@
-name: Browser Windows (6H)
+name: Browser Windows (4H)
 
 on:
   workflow_dispatch:
